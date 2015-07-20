@@ -6,3 +6,22 @@ ul {
 li {
     display: inline;
 }
+
+.john.outer {
+  position: absolute;
+  border: 1px solid blue;
+  height: 300px;
+  width: 500px;
+}
+
+.john.outer .inner {
+  position: relative;
+  top: 100px;
+  left: 100px;
+  border: 1px solid red;
+  height: 100px;
+  width: 200px;
+}
+
+
+
