@@ -6,18 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Scope Demo</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 
-<body ng-app="scopeDemo">
+<body ng-app="ScopeDemo">
   <p>{{2 + 2}}</p>
 
+  <ul>
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="about">About</a></li>
+    <li><a ui-sref="contact">Contact</a></li>
+  </ul>
+
+  <div ui-view></div>
 
 
+
+
+  <!-- external dependencies -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="bower_components/jQuery/dist/jQuery.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="app.js"></script>
+
+  <!-- main -->
+  <script src="app/app.js"></script>
+
+  <!-- navigation -->
+  <script src="app/navigation/navigation.mdl.js"></script>
+  <script src="app/navigation/controllers/contact.ctrl.js"></script>
+  <script src="app/navigation/controllers/about.ctrl.js"></script>
+
 </body>
 </html>
