@@ -7,5 +7,47 @@
 <br>
 <br>
 <div ng-repeat="eventType in my_data_json.eventTypes">
-  <tree-node event-type="eventType"></tree-node>
+  <tree-node event-type="eventType" ng-model="eventType.isOpen"></tree-node>
 </div>
+
+<p>testing tree with ul's and li's</p>
+
+<input type="search1" id="search1" class="form-control" ng-model="search1">
+<input type="search2" id="search2" class="form-control" ng-model="search2">
+
+<ul ng-repeat="eventType in my_data_json.eventTypes | filter:{name: search1} | filter:{displayName: search2}">
+  <li>
+    &nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_event.png" alt="event icon" height="11" width="11" ng-click="toggleAttributes($index)">&nbsp;{{eventType.name}}
+
+    <ul ng-repeat="attribute in eventType.attributes" ng-show="eventType.isOpen">
+      <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_attribute.png" alt="event icon" height="11" width="11" ng-click="toggleValues($parent.$index, $index)">{{attribute.name}}
+
+        <ul ng-repeat="value in attribute.values" ng-show="attribute.isOpen">
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value.name}}</li>
+        </ul>
+      </li>
+    </ul>
+
+  </li>
+</ul>
+
+
+<p> ultimate test, testing tree in other part of the screen</p>
+
+<ul ng-repeat="eventType in my_data_json.eventTypes | filter:{name: search1} | filter:{displayName: search2}">
+  <li>
+    &nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_event.png" alt="event icon" height="11" width="11" ng-click="toggleAttributes($index)">&nbsp;<span ng-show="false">{{eventType.name}}</span>&nbsp;{{eventType.displayName}}
+
+    <ul ng-repeat="attribute in eventType.attributes" ng-show="eventType.isOpen">
+      <li>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_attribute.png" alt="event icon" height="11" width="11" ng-click="toggleValues($parent.$index, $index)">{{attribute.name}}
+
+        <ul ng-repeat="value in attribute.values" ng-show="attribute.isOpen">
+          <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value.name}}</li>
+        </ul>
+      </li>
+    </ul>
+
+  </li>
+</ul>

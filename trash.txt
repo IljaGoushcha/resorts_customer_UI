@@ -1,0 +1,17 @@
+<div ng-repeat="eventType in my_data_json.eventTypes">
+  <p>&nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_event.png" alt="event icon" height="11" width="11" ng-click="toggleAttributes($index)">&nbsp;{{eventType.name}}&nbsp;{{eventType.displayName}}</p>
+
+  <div ng-repeat="attribute in eventType.attributes" ng-show="eventType.isOpen">
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../../images/tree/icons_metadata_attribute.png" alt="event icon" height="11" width="11" ng-click="toggleValues($parent.$index, $index)">{{attribute.name}}</p>
+
+    <div ng-repeat="value in attribute.values" ng-show="attribute.isOpen">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value.name}}</p>
+    </div>
+
+  </div>
+
+
+
+  <p>ultimate test, testing same tree in the other part of the page</p>
+
+</div>
